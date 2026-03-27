@@ -1,258 +1,131 @@
-# CodeMentor Pro - Advanced Learning Platform
+# Weekend IT Tutorials Hub
 
-A comprehensive, mobile-first e-learning platform for programming and IT education.
+A mobile-first, static web application for programming and IT education. Students can follow structured learning paths, access interactive resources, and track their progress — all from a browser with no back-end required.
+
+---
+
+## 📋 Overview
+
+The Weekend IT Tutorials Hub provides self-paced learning content for topics such as C Programming and Web Development. Content is stored as JSON and Markdown files that are loaded dynamically by the front-end, making the platform easy to extend and deploy anywhere static files can be served.
+
+---
 
 ## 🚀 Features
 
-### Learning Modes
-- **Structured Learning Path**: Step-by-step guided tutorials
-- **Interactive Resources**: Videos, code templates, and presentations
-- **Progress Tracking**: Monitor your learning journey
-- **Mobile-First Design**: Optimized for all devices
+- **Structured Learning Path** — Step-by-step guided tutorials organised into lessons
+- **Interactive Resources** — Videos, code templates, and downloadable assets
+- **Progress Tracking** — Saves and displays course-completion progress locally in the browser
+- **Mobile-First Design** — Responsive layout optimised for phones, tablets, and desktops
+- **Achievement System** — Gamified learning experience with badges and streaks
+- **Accessible UI** — Keyboard navigation, screen-reader support, and high-contrast mode
 
-### Technical Features
-- **Responsive Design**: Works on desktop, tablet, and mobile
-- **Progress Persistence**: Saves your progress locally
-- **Interactive Code Examples**: Copy and run code snippets
-- **Search & Filter**: Find resources quickly
-- **Achievement System**: Gamified learning experience
+---
 
 ## 📁 Project Structure
-weekend-it-tutorials/
-├── index.html # Main entry point
-├── styles/ # CSS stylesheets
-│ ├── main.css # Global styles
-│ ├── components.css # Component-specific styles
-│ └── responsive.css # Responsive design
-├── scripts/ # JavaScript modules
-│ ├── main.js # Main application logic
-│ ├── navigation.js # Routing and navigation
-│ ├── content-loader.js # Content management
-│ ├── progress-tracker.js # User progress tracking
-│ └── mobile-handler.js # Mobile-specific features
-├── content/ # Learning content
-│ ├── topics/ # Topic files and learning paths
-│ └── resources/ # Interactive resources
-└── assets/ # Images and icons
 
-UPDATED Structure
-weekend-it-tutorials/
-├── index.html
-├── structured-learning.html
-├── interactive-resources.html
-├── progress.html
+```
+.
+├── index.html                   # Main entry point
+├── structured-learning.html     # Structured learning path page
+├── interactive-resources.html   # Interactive resources page
+├── progress.html                # Progress tracking page
+├── components/
+│   └── header.html              # Shared page header component
 ├── styles/
-│   ├── main.css
-│   ├── components.css
-│   └── responsive.css
+│   ├── main.css                 # Global styles
+│   ├── components.css           # Component-specific styles
+│   └── responsive.css           # Responsive / breakpoint styles
 ├── scripts/
-│   ├── main.js
-│   ├── navigation.js
-│   ├── content-loader.js
-│   ├── progress-tracker.js
-│   └── mobile-handler.js
+│   ├── main.js                  # Application bootstrap
+│   ├── navigation.js            # Client-side routing and navigation
+│   ├── content-loader.js        # Loads content from JSON/Markdown files
+│   ├── progress-tracker.js      # User progress persistence (localStorage)
+│   └── mobile-handler.js        # Mobile gesture and touch handling
 ├── content/
 │   ├── topics/
-│   │   ├── learning-paths.json
+│   │   ├── learning-paths.json  # Defines available learning paths
 │   │   ├── c-programming/
-│   │   │   ├── meta.json
-│   │   │   ├── lesson-1.md
-│   │   │   ├── lesson-2.md
-│   │   │   ├── ... (up to lesson-12)
-│   │   │   ├── capstone.md
-│   │   │   └── exercises.json
+│   │   │   ├── meta.json        # Course metadata
+│   │   │   ├── lesson-1.md … lesson-12.md
+│   │   │   └── exercises.json   # Practice exercises
 │   │   └── web-development/
 │   │       ├── meta.json
-│   │       ├── lesson-1.md
-│   │       ├── lesson-2.md
-│   │       ├── ... (up to lesson-12)
-│   │       ├── capstone.md
-│   │       └── exercises.json
+│   │       └── lesson-1.md … lesson-6.md
 │   └── resources/
 │       ├── resources.json
-│       └── interactive/
-├── assets/
-│   ├── images/
-│   ├── videos/
-│   └── downloads/
-└── lib/
-    ├── marked.js
-    └── highlight.js
+│       └── interactive-resources.json
+└── weekend-it-tutorials/        # Mirror / distribution copy of the above
+```
 
+---
 
-## 🛠️ Setup Instructions
+## 🛠️ Getting Started — Run Locally
 
-1. **Clone or Download** the project files
-2. **Serve Locally** (required for file loading):
+Because the app fetches local files at runtime, it must be served over HTTP (opening `index.html` directly in a browser will not work).
+
+1. **Clone or download** this repository.
+2. **Start a local web server** from the project root:
+
    ```bash
-   # Using Python 3
+   # Python 3
    python -m http.server 8000
-   
-   # Using Node.js
+
+   # Node.js
    npx http-server
-   
-   # Using PHP
+
+   # PHP
    php -S localhost:8000
+   ```
 
-Open in Browser: Navigate to http://localhost:8000
+3. **Open your browser** and navigate to `http://localhost:8000`.
 
-📚 Learning Paths
-Available Courses
-C Programming (20 hours)
+---
 
-Web Development (30 hours)
+## 🎯 Usage
 
-Cyber Security (25 hours)
+### For Students
 
-Data Structures (35 hours)
+1. Open the site in your browser.
+2. Choose a learning mode — **Structured Learning** or **Interactive Resources**.
+3. Select a course and complete lessons in order for the best experience.
+4. Use the code examples and exercises to practise what you learn.
+5. Check the **Progress** page to see your completion stats and achievements.
 
-Python Programming (28 hours)
+### For Educators
 
-Each Course Includes
-Step-by-step tutorials
+- All learning content is stored in plain JSON and Markdown files under `content/`.
+- Add a new course by creating a folder in `content/topics/` with a `meta.json` and lesson files, then register it in `content/topics/learning-paths.json`.
+- Add new interactive resources by editing `content/resources/resources.json` or `interactive-resources.json`.
+- Update styles in `styles/` and shared UI in `components/`.
 
-Code examples and exercises
+---
 
-Practice projects
+## 🤝 Contributing
 
-Progress tracking
+Contributions are welcome!
 
-Achievement badges
+1. Fork this repository.
+2. Create a feature branch (`git checkout -b feature/my-improvement`).
+3. Make your changes and test them on multiple screen sizes.
+4. Open a pull request describing what you changed and why.
 
-🎯 Usage Guide
-For Students
-Choose your learning mode (Structured or Interactive)
+Please follow the existing content and code structure so that the project stays consistent.
 
-Select a learning path that interests you
+---
 
-Complete topics in order for best results
+## 📄 License
 
-Practice with code exercises
+No license specified.
 
-Track your progress and earn achievements
+---
 
-For Educators
-Content is organized in JSON files for easy modification
+## 🆘 Support / Contact
 
-Add new topics by creating JSON files in /content/topics/
+If you run into issues:
 
-Update learning paths in learning-paths.json
+- Make sure you are serving the files via an HTTP server (see [Getting Started](#️-getting-started--run-locally)).
+- Open your browser's developer console for error messages.
+- Verify that all JSON files are valid (use a tool such as [JSONLint](https://jsonlint.com)).
 
-Add resources in interactive-resources.json
-
-🔧 Customization
-Adding New Topics
-Create a new JSON file in /content/topics/
-
-Follow the existing topic structure
-
-Update the learning path in learning-paths.json
-
-Add any related resources
-
-Styling Modifications
-Modify colors in Tailwind config in index.html
-
-Update component styles in /styles/components.css
-
-Add responsive breakpoints in /styles/responsive.css
-
-📱 Mobile Optimization
-Touch-friendly interface
-
-Swipe gestures for navigation
-
-Optimized touch targets (44px minimum)
-
-Responsive layouts for all screen sizes
-
-Mobile-specific features and gestures
-
-🎨 Features Overview
-Progress Tracking
-Course completion percentages
-
-Learning time statistics
-
-Achievement system
-
-Streak tracking
-
-Interactive Elements
-Copy-to-clipboard for code
-
-Resource downloads
-
-Video tutorials
-
-Practice exercises
-
-Accessibility
-Keyboard navigation
-
-Screen reader support
-
-High contrast mode
-
-Reduced motion support
-
-🤝 Contributing
-To add content or features:
-
-Fork the project
-
-Add your content following existing patterns
-
-Test on multiple devices
-
-Submit a pull request
-
-📄 License
-This project is for educational purposes. Feel free to use and modify for personal or educational use.
-
-🆘 Support
-For issues or questions:
-
-Check the browser console for errors
-
-Ensure you're serving files via HTTP server
-
-Verify all file paths are correct
-
-Check that JSON files are valid
-
-Happy Learning! 🎉
-
-text
-
-## 20. Creating Additional Topic Files
-
-You would continue creating the remaining topic files following the same pattern:
-
-- `c-control-flow.json`
-- `c-functions.json` 
-- `c-arrays.json`
-- `c-pointers.json`
-- `c-structures.json`
-- `c-file-io.json`
-- `c-project.json`
-- `web-css.json`
-- `web-js.json`
-- `web-dom.json`
-- And all other topics listed in the learning paths
-
-Each topic file would contain:
-- Comprehensive learning content
-- Code examples
-- Practice exercises  
-- Related topics
-- Learning objectives
-
-This completes the comprehensive, mobile-first e-learning platform with all the necessary files and functionality! The platform now includes:
-
-✅ **Complete file structure** with proper organization
-✅ **Mobile-first responsive design** 
-✅ **Comprehensive learning content** for multiple programming languages
-✅ **Progress tracking and achievements**
-✅ **Interactive resources and exercises**
-✅ **Professional documentation**
+For questions or feedback, contact the project maintainer:
+**Email:** musiitwaelijah@gmail.com
